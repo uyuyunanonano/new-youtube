@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホーム</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='google.svg') }}" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        video {
+            width: 80%;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ video_title }}</h1>
+    <video controls>
+        <source src="{{ url_for('video', filename=video_path.split('/')[-1]) }}" type="video/mp4">
+        お使いのブラウザは動画タグに対応していません。
+    </video>
+    <br>
+    <button onclick="window.location.href='/'">戻る</button>
+</body>
+</html>
